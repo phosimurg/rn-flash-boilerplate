@@ -15,7 +15,7 @@ A fully-featured, modern React Native boilerplate with TypeScript support, navig
 - 🔄 State management with Zustand
 - 🛡️ Safe Area handling
 - 📱 Well-structured project architecture
-- 🧹 ESLint configuration for code quality
+- 🧹 ESLint and prettier configuration for code quality
 - 📏 Consistent metrics system for responsive layouts
 - 🎨 Vector Icons integration for beautiful UI elements
 - 🧰 Pre-configured UI components ready to use
