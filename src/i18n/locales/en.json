@@ -1,0 +1,10 @@
+{
+  "hello": "Hello!",
+  "home": {
+    "welcome": "Welcome to RN Flash ⚡ Boilerplate!",
+    "changeTheme": "Change Theme"
+  },
+  "routes": {
+    "home": "Home"
+  }
+}

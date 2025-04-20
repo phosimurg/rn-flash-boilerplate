@@ -1,0 +1,10 @@
+{
+  "hello": "Merhaba!",
+  "home": {
+    "welcome": "RN Flash ⚡ Boilerplate'e Hoşgeldin!",
+    "changeTheme": "Temayı Değiştir"
+  },
+  "routes": {
+    "home": "Ana Sayfa"
+  }
+}

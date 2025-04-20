@@ -1,97 +1,190 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Flash ⚡ Boilerplate
 
-# Getting Started
+A fully-featured, modern React Native boilerplate with TypeScript support, navigation structure, multi-language capabilities, theme switching, and more!
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- ⚡ Built with React Native 0.79.1
+- 🧩 TypeScript for type safety
+- 🧭 React Navigation v7 with pre-configured navigators (Stack, Bottom Tabs)
+- 🌗 Dark/Light theme support with ThemeProvider
+- 🌐 Internationalization (i18n) with language switching
+- 💾 MMKV storage for fast data persistence
+- 🔄 State management with Zustand
+- 🛡️ Safe Area handling
+- 📱 Well-structured project architecture
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Project Structure
 
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+```
+src/
+├── assets/           # Fonts, images, and other static files
+│   └── fonts/        # Custom fonts
+├── components/       # Reusable UI components
+│   ├── Button/       # Button component
+│   ├── SizedBox/     # Spacing component
+│   └── TextField/    # Text input component
+├── i18n/             # Internationalization
+│   ├── locales/      # Translation files
+│   └── initI18next.ts # i18n configuration
+├── navigation/       # Navigation setup
+│   ├── page-navigators/  # Individual navigators
+│   │   ├── HomeStackNavigator.tsx
+│   │   ├── AppNavigator.tsx
+│   │   └── RootNavigator.tsx
+├── screens/          # App screens
+│   └── home/         # Home screen
+│       ├── index.tsx # Screen component
+│       └── styles.ts # Screen styles
+├── storage/          # Storage utilities
+│   └── index.ts      # MMKV setup
+├── store/            # State management
+│   └── useStore.ts   # Zustand store
+└── theme/            # Theming system
+    ├── colors.ts     # Color palette
+    ├── metrics.ts    # Consistent sizing
+    ├── ThemeProvider.tsx # Theme context
+    └── Typography.ts # Text styles
 ```
 
-## Step 2: Build and run your app
+## Getting Started
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### Prerequisites
 
-### Android
+- Node.js >= 18
+- JDK 17 or newer
+- Android Studio (for Android development)
+- Xcode (for iOS development)
+- CocoaPods (for iOS dependencies)
+- Ruby (for iOS development)
 
-```sh
-# Using npm
-npm run android
+### Installation
 
-# OR using Yarn
-yarn android
+1. Clone the repository:
+```bash
+git clone https://github.com/phosimurg/rn-flash-boilerplate.git
+cd rn_boilerplate
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+2. Install dependencies:
+```bash
+npm install
+```
+```bash
+yarn install
 ```
 
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
+3. Install iOS dependencies:
+```bash
+cd ios && pod install && cd ..
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### Running the app
 
-```sh
-# Using npm
+#### iOS
+```bash
 npm run ios
-
-# OR using Yarn
+```
+```bash
 yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+By default, this command will run the app on iPhone 16 Pro simulator using PowerShell terminal. You can customize this in package.json.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+#### Android
+```bash
+npm run android
+```
+```bash
+yarn android
+```
 
-## Step 3: Modify your app
+#### Development server
+```bash
+npm run start
+```
+```bash
+yarn start
+```
 
-Now that you have successfully run the app, let's make changes!
+## Customization
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Renaming the Project
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+To rename your project from "rn_boilerplate" to your preferred name:
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+1. Use the [React Native Rename](https://github.com/junedomingo/react-native-rename) package:
 
-## Congratulations! :tada:
+```bash
+npx react-native-rename "YourAppName" -b com.yourcompany.yourappname
+```
 
-You've successfully run and modified your React Native App. :partying_face:
+2. Update the `name` field in `package.json` to match your new project name.
 
-### Now what?
+3. Update the app name in `app.json` or equivalent.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+### Customizing the Simulator
 
-# Troubleshooting
+In `package.json`, you can change the iOS simulator by modifying:
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```json
+"ios": "react-native run-ios --simulator=\"iPhone 16 Pro\" --terminal powershell"
+```
 
-# Learn More
+Replace "iPhone 16 Pro" with your preferred simulator device.
 
-To learn more about React Native, take a look at the following resources:
+### Changing Theme Colors
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Edit the theme color palette in `src/theme/colors.ts` to match your brand's color scheme.
+
+### Adding Custom Fonts
+
+1. Add your font files to `src/assets/fonts/`
+2. Link the fonts by adding them to your iOS and Android configuration
+3. Update `src/theme/Typography.ts` to use your custom fonts
+
+### Adding Translation Keys
+
+Add or edit translation keys in the locale files located in `src/i18n/locales/`.
+
+## Dependencies
+
+### Core
+- react-native: 0.79.1
+- react: 19.0.0
+
+### Navigation
+- @react-navigation/native: ^7.1.6
+- @react-navigation/stack: ^7.2.10
+- @react-navigation/bottom-tabs: ^7.3.10
+- @react-navigation/native-stack: ^7.3.10
+- react-native-screens: ^4.10.0
+- react-native-safe-area-context: ^5.4.0
+
+### State Management
+- zustand: ^5.0.3
+
+### Storage
+- react-native-mmkv: ^3.2.0
+
+### Internationalization
+- i18next: ^25.0.1
+- react-i18next: ^15.4.1
+- react-native-localize: ^3.4.1
+
+### UI Utilities
+- react-native-svg: ^15.11.2
+- react-native-vector-icons: ^10.2.0
+- react-native-gesture-handler: ^2.25.0
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Author
+
+Created by Ahmet YILDIZ
+
+---
+
+Feel free to contribute, open issues, or suggest improvements!
