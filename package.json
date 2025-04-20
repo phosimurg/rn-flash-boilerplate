@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "setup": "node setup.js",
     "android": "react-native run-android --terminal powershell",
     "ios": "react-native run-ios --simulator=\"iPhone 16 Pro\" --terminal powershell",
     "lint": "eslint .",

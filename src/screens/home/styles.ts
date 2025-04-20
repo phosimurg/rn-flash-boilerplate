@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors as themeColors} from '../../theme/colors';
 import metrics from '../../theme/metrics';
-import typography from '../../theme/Typography.ts';
+import typography from '../../theme/typography.ts';
 
 export const createStyles = (colors: typeof themeColors.light) => {
   return StyleSheet.create({
@@ -14,7 +14,7 @@ export const createStyles = (colors: typeof themeColors.light) => {
     title: {
       color: colors.text,
       fontSize: metrics.moderateScale(32),
-      fontFamily: typography.REGULAR,
+      fontFamily: typography.BOLD,
     },
     text: {
       color: colors.text,
@@ -25,6 +25,6 @@ export const createStyles = (colors: typeof themeColors.light) => {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-    }
+    },
   });
 };

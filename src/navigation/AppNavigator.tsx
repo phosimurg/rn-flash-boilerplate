@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useTheme} from '../theme/ThemeProvider';
-import Typography from '../theme/Typography';
+import Typography from '../theme/typography.ts';
 import Metrics from '../theme/metrics';
 import {useTranslation} from 'react-i18next';
 

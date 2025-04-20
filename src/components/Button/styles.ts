@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import {ButtonProps} from './types';
 import {colors as themeColors} from '../../theme/colors';
 import Metrics from '../../theme/metrics.ts';
-import Typography from '../../theme/Typography.ts';
+import Typography from '../../theme/typography.ts';
 
 export function ButtonStyles(
     colors: typeof themeColors.light,

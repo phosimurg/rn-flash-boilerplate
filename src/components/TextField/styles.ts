@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import Metrics from '../../theme/metrics.ts';
-import Typography from '../../theme/Typography.ts';
+import Typography from '../../theme/typography.ts';
 
 const styles = (colors: any, multiline: boolean) => {
     return StyleSheet.create({
