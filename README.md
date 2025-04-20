@@ -1,3 +1,5 @@
+![ReactNativeFlash](./src/assets/images/rn.jpg)
+
 # React Native Flash ⚡ Boilerplate
 
 A fully-featured, modern React Native boilerplate with TypeScript support, navigation structure, multi-language capabilities, theme switching, and more!
