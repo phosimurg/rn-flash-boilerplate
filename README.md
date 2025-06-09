@@ -64,91 +64,86 @@ src/
 - CocoaPods (for iOS dependencies)
 - Ruby (for iOS development)
 
-### Installation
+### Quick Start
 
-1. Clone the repository:
+**Step 1: Clone the repository**
 ```bash
 git clone https://github.com/phosimurg/rn-flash-boilerplate.git
 cd rn_boilerplate
 ```
 
-2. Use the setup script (recommended):
+**Step 2: Setup and rename your project** ⚡
 ```bash
-npm run setup
+yarn setup --project-name "YourAppName" --bundle-name com.yourcompany.yourappname
 ```
+
+That's it! 🎉 This single command will:
+- ✅ Rename your project from "rn_boilerplate" to "YourAppName"
+- ✅ Update all bundle identifiers and configurations
+- ✅ Install all dependencies
+- ✅ Link font assets automatically
+- ✅ Configure iOS pods
+- ✅ Set up everything for immediate development
+
+**Step 3: Run your app**
+```bash
+# For iOS
+yarn ios
+
+# For Android
+yarn android
+```
+
+### Alternative Installation Methods
+
+If you prefer to set up manually or rename later:
+
+**Option 1: Setup without renaming first**
 ```bash
 yarn setup
 ```
 
-This setup script will:
-- Install all dependencies
-- Link font assets automatically
-- Install iOS pods
-- Configure everything for immediate use
-
-OR install manually:
-
-3. Install dependencies:
+**Option 2: Manual installation**
 ```bash
-npm install
-```
-```bash
+# Install dependencies
 yarn install
-```
 
-4. Link assets (for fonts):
-```bash
+# Link font assets
 npx react-native-asset
+
+# Install iOS dependencies
+cd ios && bundle install && bundle exec pod install && cd ..
 ```
 
-5. Install iOS dependencies:
-```bash
-cd ios && pod install && cd ..
-```
-
-### Running the app
-
-#### iOS
-```bash
-npm run ios
-```
-```bash
-yarn ios
-```
-
-By default, this command will run the app on iPhone 16 Pro simulator using PowerShell terminal. You can customize this in package.json.
-
-#### Android
-```bash
-npm run android
-```
-```bash
-yarn android
-```
-
-#### Development server
-```bash
-npm run start
-```
-```bash
-yarn start
-```
-
-## Customization
-
-### Renaming the Project
-
-To rename your project from "rn_boilerplate" to your preferred name:
-
-1. Use the [React Native Rename](https://github.com/junedomingo/react-native-rename) package:
-
+**Then rename manually when ready:**
 ```bash
 npx react-native-rename "YourAppName" -b com.yourcompany.yourappname
 ```
 
-2. Update the `name` field in `package.json` to match your new project name.
+### Development Commands
 
-3. Update the app name in `app.json` or equivalent.
+Once your project is set up, you can use these commands:
+
+```bash
+# Start Metro bundler
+yarn start
+
+# Run on iOS (iPhone 16 Pro simulator by default)
+yarn ios
+
+# Run on Android
+yarn android
+
+# Install iOS dependencies (if needed later)
+cd ios && bundle exec pod install && cd ..
+
+# Link new font assets (if you add fonts later)
+npx react-native-asset
+```
+
+> **Note:** The iOS command runs on iPhone 16 Pro simulator by default. You can customize this in `package.json`.
+
+## Customization
 
 ### Customizing the Simulator
 
@@ -260,7 +255,7 @@ Add or edit translation keys in the locale files located in `src/i18n/locales/`.
 
 ### Setup Script
 
-The boilerplate includes a convenient setup script that automates the project initialization process. To use it, add this script to your package.json:
+The boilerplate includes a convenient setup script that automates the project initialization process and supports project renaming. To use it, add this script to your package.json:
 
 ```json
 "scripts": {
@@ -269,34 +264,23 @@ The boilerplate includes a convenient setup script that automates the project in
 }
 ```
 
-Then create a `setup.js` file in your project root with the following content:
+The enhanced `setup.js` file supports command line arguments for project renaming:
 
-```javascript
-// setup.js
-const { execSync } = require('child_process');
+```bash
+# Setup with project renaming
+yarn setup --project-name "YourAppName" --bundle-name com.yourcompany.yourapp
 
-console.log('⚡ React Native Flash Boilerplate Setup ⚡');
-console.log('=======================================');
-
-try {
-  console.log('📦 Installing dependencies...');
-  execSync('yarn install', { stdio: 'inherit' });
-
-  console.log('\n🔠 Linking font assets...');
-  execSync('npx react-native-asset', { stdio: 'inherit' });
-
-  console.log('\n🍎 Installing iOS dependencies...');
-  execSync('cd ios && pod install && cd ..', { stdio: 'inherit' });
-
-  console.log('\n✅ Setup completed successfully!');
-  console.log('\n🚀 Run your app with:');
-  console.log('  iOS:     yarn ios');
-  console.log('  Android: yarn android');
-} catch (error) {
-  console.error('\n❌ Setup failed with error:', error.message);
-  process.exit(1);
-}
+# Setup without renaming
+yarn setup
 ```
+
+The setup script includes:
+- Command line argument parsing for project renaming
+- Automatic react-native-rename execution
+- Dependency installation
+- Font asset linking
+- iOS pod installation
+- Complete project configuration
 
 Also, create a `react-native.config.js` file in your project root:
 
@@ -354,7 +338,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Author
 
-Created by Ahmet YILDIZ
+Created by Ahmet YILDIZ - phosimurg
 
 ---
 
