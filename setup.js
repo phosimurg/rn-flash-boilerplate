@@ -60,7 +60,41 @@ function renameIOSFolders(newProjectName) {
       console.log(`   ✅ Renamed ${oldProjectName}.xcworkspace to ${newProjectName}.xcworkspace`);
     }
 
-    console.log('✅ iOS folders renamed successfully!');
+    console.log('📝 Updating iOS configuration files...');
+
+    // Update AppDelegate.swift withModuleName
+    const appDelegatePath = path.join(iosPath, newProjectName, 'AppDelegate.swift');
+    if (fs.existsSync(appDelegatePath)) {
+      let appDelegateContent = fs.readFileSync(appDelegatePath, 'utf8');
+      appDelegateContent = appDelegateContent.replace(
+        `withModuleName: "${oldProjectName}"`,
+        `withModuleName: "${newProjectName}"`
+      );
+      fs.writeFileSync(appDelegatePath, appDelegateContent, 'utf8');
+      console.log(`   ✅ Updated AppDelegate.swift withModuleName to "${newProjectName}"`);
+    }
+
+    // Rename and update .xcscheme file
+    const oldSchemePath = path.join(iosPath, `${newProjectName}.xcodeproj`, 'xcshareddata', 'xcschemes', `${oldProjectName}.xcscheme`);
+    const newSchemePath = path.join(iosPath, `${newProjectName}.xcodeproj`, 'xcshareddata', 'xcschemes', `${newProjectName}.xcscheme`);
+    
+    if (fs.existsSync(oldSchemePath)) {
+      // Read and update scheme file content
+      let schemeContent = fs.readFileSync(oldSchemePath, 'utf8');
+      
+      // Replace all references to old project name in the scheme file
+      schemeContent = schemeContent.replace(new RegExp(oldProjectName, 'g'), newProjectName);
+      
+      // Write updated content to new scheme file
+      fs.writeFileSync(newSchemePath, schemeContent, 'utf8');
+      
+      // Remove old scheme file
+      fs.unlinkSync(oldSchemePath);
+      
+      console.log(`   ✅ Renamed and updated ${oldProjectName}.xcscheme to ${newProjectName}.xcscheme`);
+    }
+
+    console.log('✅ iOS folders and configuration files updated successfully!');
   } catch (error) {
     console.error('❌ Error renaming iOS folders:', error.message);
     throw error;
@@ -103,7 +137,10 @@ try {
   
   if (projectName && bundleName) {
     console.log(`\n📱 Your app "${projectName}" is ready to go!`);
-    console.log(`\n📁 iOS project folders have been renamed to match "${projectName}"`);
+    console.log(`\n📁 iOS project completely updated:`);
+    console.log(`   • Folders renamed to "${projectName}"`);
+    console.log(`   • AppDelegate.swift updated`);
+    console.log(`   • Xcode scheme updated`);
   }
 } catch (error) {
   console.error('\n❌ Setup failed with error:', error.message);
