@@ -6,8 +6,7 @@ A fully-featured, modern React Native boilerplate with TypeScript support, navig
 
 ## Features
 
-- ⚡ Built with React Native 0.83.0
-- ⚛️ React 19.2.0 support
+- ⚡ Built with React Native 0.79.1
 - 🧩 TypeScript for type safety
 - 🧭 React Navigation v7 with ready-to-use navigation structure
 - 🌗 Dark/Light theme support with ThemeProvider
@@ -20,7 +19,6 @@ A fully-featured, modern React Native boilerplate with TypeScript support, navig
 - 📏 Consistent metrics system for responsive layouts
 - 🎨 Vector Icons integration for beautiful UI elements
 - 🧰 Pre-configured UI components ready to use
-- 🚀 New Architecture (Fabric & TurboModules) ready
 
 ## Project Structure
 
@@ -59,7 +57,7 @@ src/
 
 ### Prerequisites
 
-- Node.js >= 20
+- Node.js >= 18
 - JDK 17 or newer
 - Android Studio (for Android development)
 - Xcode (for iOS development)
@@ -130,7 +128,7 @@ Once your project is set up, you can use these commands:
 # Start Metro bundler
 yarn start
 
-# Run on iOS (iPhone 17 Pro simulator by default)
+# Run on iOS (iPhone 16 Pro simulator by default)
 yarn ios
 
 # Run on Android
@@ -143,7 +141,7 @@ cd ios && bundle exec pod install && cd ..
 npx react-native-asset
 ```
 
-> **Note:** The iOS command runs on iPhone 17 Pro simulator by default. You can customize this in `package.json`.
+> **Note:** The iOS command runs on iPhone 16 Pro simulator by default. You can customize this in `package.json`.
 
 ## Customization
 
@@ -152,10 +150,10 @@ npx react-native-asset
 In `package.json`, you can change the iOS simulator by modifying:
 
 ```json
-"ios": "react-native run-ios --simulator=\"iPhone 17 Pro\" --terminal powershell"
+"ios": "react-native run-ios --simulator=\"iPhone 16 Pro\" --terminal powershell"
 ```
 
-Replace "iPhone 17 Pro" with your preferred simulator device.
+Replace "iPhone 16 Pro" with your preferred simulator device.
 
 ### Changing Theme Colors
 
@@ -253,39 +251,6 @@ If you want to use different fonts:
 
 Add or edit translation keys in the locale files located in `src/i18n/locales/`.
 
-## Troubleshooting
-
-### iOS Build Issues
-
-If you encounter "Could not build module" errors during iOS build, follow these steps:
-
-```bash
-# 1. Clean pod cache
-cd ios
-pod cache clean --all
-
-# 2. Remove Podfile.lock and Pods folder
-rm -rf Podfile.lock Pods
-
-# 3. Update pod repo
-pod repo update
-
-# 4. Reinstall pods
-pod install
-
-# 5. Return to root and clear Metro cache
-cd ..
-yarn start --reset-cache
-```
-
-**In Xcode:**
-1. Close Xcode
-2. Clean Derived Data: `rm -rf ~/Library/Developer/Xcode/DerivedData/*`
-3. Reopen Xcode
-4. Product → Clean Build Folder (⇧⌘K)
-
-The Podfile is already configured with proper deployment target settings for React Native 0.83.0.
-
 ## Project Setup
 
 ### Setup Script
@@ -335,8 +300,8 @@ This setup ensures that new users of your boilerplate can get everything running
 ## Dependencies
 
 ### Core
-- react-native: 0.83.0
-- react: 19.2.0
+- react-native: 0.79.1
+- react: 19.0.0
 
 ### Navigation
 - @react-navigation/native: ^7.1.6
@@ -344,13 +309,13 @@ This setup ensures that new users of your boilerplate can get everything running
 - @react-navigation/bottom-tabs: ^7.3.10
 - @react-navigation/native-stack: ^7.3.10
 - react-native-screens: ^4.10.0
-- react-native-safe-area-context: ^5.5.2
+- react-native-safe-area-context: ^5.4.0
 
 ### State Management
 - zustand: ^5.0.3
 
 ### Storage
-- react-native-mmkv: ^4.1.1
+- react-native-mmkv: ^3.2.0
 
 ### Internationalization
 - i18next: ^25.0.1
@@ -362,23 +327,10 @@ This setup ensures that new users of your boilerplate can get everything running
 - react-native-vector-icons: ^10.2.0
 - react-native-gesture-handler: ^2.25.0
 
-### React Native Core
-- @react-native/new-app-screen: 0.83.0
-- react-native-nitro-modules: ^0.33.1
-
-### Development Tools
-- @react-native-community/cli: 20.0.0
-- @react-native-community/cli-platform-android: 20.0.0
-- @react-native-community/cli-platform-ios: 20.0.0
-- @react-native/babel-preset: 0.83.0
-- @react-native/eslint-config: 0.83.0
-- @react-native/metro-config: 0.83.0
-- @react-native/typescript-config: 0.83.0
-
 ### Code Quality
 - eslint: ^8.19.0
 - prettier: 2.8.8
-- typescript: ^5.8.3
+- @react-native/eslint-config: 0.79.1
 
 ## License
 
