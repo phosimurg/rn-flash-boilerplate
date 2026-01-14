@@ -1,11 +1,11 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { MMKV } from 'react-native-mmkv';
 import * as RNLocalize from 'react-native-localize';
 import en from './locales/en.json';
 import tr from './locales/tr.json';
+import { createMMKV } from 'react-native-mmkv';
 
-const storage = new MMKV();
+const storage = createMMKV();
 const LANGUAGE_KEY = 'app_language';
 
 export const initI18next = () => {
